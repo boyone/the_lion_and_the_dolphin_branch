@@ -1,0 +1,71 @@
+Preparing Your Environment
+Installing java
+
+Installing git 
+    download git from git-scm.org
+
+    after install type: git --version
+
+
+Set Up Git
+    username:
+        git config --global user.name "Your Name Here"
+
+    email:
+        git config --global user.email "your_email@example.com" 
+
+    password caching: default 15 minute
+        git config --global credential.helper 'cache --timeout=3600'
+
+    Generating SSH Keys: check id_rsa.pub or id_dsa.pub
+        cd ~/.ssh
+        ls
+    
+    Generate a new SSH key:
+    [https://help.github.com/articles/generating-ssh-keys]
+        ssh-keygen -t rsa -C "your_email@example.com"
+
+    
+    Add your SSH key to GitHub:
+        Go to your Account Settings
+        Click "SSH Keys" in the left sidebar
+        Click "Add SSH key"
+        Paste your key into the "Key" field
+        Click "Add key"
+        Confirm the action by entering your GitHub password
+
+    
+    Test everything out:
+        ssh -T git@github.com
+
+        You may see this warning:
+        The authenticity of host 'github.com (207.97.227.239)' can't be established.
+        # RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+        # Are you sure you want to continue connecting (yes/no)?
+
+        ls ~/.ssh
+        known_hosts
+
+
+    
+
+    Error: Agent admitted failure to sign
+    [https://help.github.com/articles/error-agent-admitted-failure-to-sign]
+        ssh -vT git@github.com
+        ...
+        Agent admitted failure to sign using the key.
+        debug1: No more authentication methods to try.
+        Permission denied (publickey).
+
+    Resolution
+        ssh-add
+        Enter passphrase for /home/you/.ssh/id_rsa: [tippy tap]
+        Identity added: /home/you/.ssh/id_rsa (/home/you/.ssh/id_rsa)
+
+        If your key does not have the default filename, you'll have to pass the path to ssh-add
+        ssh-add ~/.ssh/my_other_key
+        Enter passphrase for /home/you/.ssh/my_other_key: [tappity tap tap]
+        Identity added: /home/you/.ssh/my_other_key (/home/you/.ssh/my_other_key)
+    
+    
+Ref: https://help.github.com/categories/56/articles

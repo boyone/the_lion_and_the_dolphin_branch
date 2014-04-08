@@ -1,0 +1,42 @@
+================= init ===================
+git init
+
+================= clone ===================
+git clone git@gitxxx
+
+================= remote ===================
+git remote add alise-name git@gitxxx
+
+================= push ===================
+git push -u origin master
+
+================= cycle ===================
+git add 
+git commit 
+git push
+git pull
+
+================= remote branch ===================
+git push origin branch-name #create remote branch
+
+git push origin :branch-name #delete remote branch
+
+================= local branch ===================
+git checkout -b dolphin #create and switch branch
+
+git branch dolphin #create branch
+git branch -d dolphin #delete branch
+
+git checkout -b branch-name origin/branch-name #create branch and set upstream remote
+
+================= switch branch ===================
+git checkout branch-name
+
+================= branch ===================
+git branch
+git branch -r
+git branch -l
+git branch -ra
+
+================= merge ===================
+git merge branch-name
